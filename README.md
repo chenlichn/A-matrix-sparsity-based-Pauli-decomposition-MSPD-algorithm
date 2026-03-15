@@ -1,4 +1,4 @@
-# A-matrix-sparsity-based-Pauli-decomposition-MSPD-algorithm
+# A-matrix-sparsity-based-Pauli-decomposition (MSPD) algorithm
 This document is designed to help users quickly understand, use, and maintain the MATLAB and Python implementations of the matrix sparsity-based Pauli decomposition (MSPD) algorithm.
 
 # Code Description for Matrix-Sparsity-Based Pauli Decomposition
