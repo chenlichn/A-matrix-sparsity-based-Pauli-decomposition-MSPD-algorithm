@@ -226,6 +226,17 @@
       5. **Time Consumption Reminder for Validation**: When the matrix scale is large (e.g., n_qubit > 12), enabling `iscorrect='open'` will lead to a significant increase in time consumption due to the Kronecker product operation and matrix reconstruction. It is recommended to enable validation only for small matrix testing.
       6. **Bandwidth Parameter Optimization**: If the exact bandwidth of the matrix is known, it is recommended to directly pass the integer value of `h`, which can skip the internal bandwidth calculation step in the C module and further improve the decomposition efficiency.
       7. **MAT File Reading**: The built-in `load_mat73` function only supports MATLAB v7.3 .mat files (HDF5 format). For earlier versions of .mat files, use `scipy.io.loadmat` to read the matrix instead.
+      8. The output parameter **a** is the non-zero coefficient vector obtained by decomposition (which may contain complex numbers), and **D** is the `numpy` vector of decimal indices corresponding to Pauli strings. After converting **D** to a quaternary string representation, the values 0–3 in each digit correspond to the standard matrices $\boldsymbol{\sigma}_0 \sim \boldsymbol{\sigma}_3$ respectively, which can be directly used for subsequent tasks such as quantum circuit construction.
+
+Among them, the standard single-qubit Pauli matrices are defined as:
+
+$$
+\boldsymbol{\sigma}_0 = \mathbf{I} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix},\quad
+\boldsymbol{\sigma}_1 = \mathbf{Z} = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix},\quad
+\boldsymbol{\sigma}_2 = \mathbf{X} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix},\quad
+\boldsymbol{\sigma}_3 = \mathbf{Y} = \mathrm{i}\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}
+$$
+
 
       ------
 
